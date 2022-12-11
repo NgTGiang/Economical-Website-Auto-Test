@@ -9,13 +9,14 @@ import softwaretesting.example.driver.DriverFactory;
 import softwaretesting.example.java.pages.HomePage;
 import softwaretesting.example.java.pages.SignupPage;
 import softwaretesting.example.keyword.WebKeyWord;
+import softwaretesting.example.utilities.ReadJson;
 import softwaretesting.example.utilities.Util;
 
 public class SignUpTest{
   private WebDriver driver;
   private WebKeyWord keyWord;
   private Configuration config;
-  private Util utilities;
+  private ReadJson readJson;
 
   public void setup() throws Exception {
     this.config = new Configuration("src/test/java/softwaretesting/example/resources/config.properties");
@@ -34,14 +35,14 @@ public class SignUpTest{
     HomePage homePage = new HomePage(driver);
     homePage.clickBtnSignUp();
     SignupPage signupPage = new SignupPage(driver);
-    signupPage.typeTextIntoTextBox(signupPage.getUserNameElement(),"");
-    signupPage.typeTextIntoTextBox(signupPage.getFirstNameElement(),"Ngo");
-    signupPage.typeTextIntoTextBox(signupPage.getLastNameElement(),"Hiep");
-    signupPage.typeTextIntoTextBox(signupPage.getEmailAddressElement(),"Hiep12z@gmail.com");
-    signupPage.typeTextIntoTextBox(signupPage.getPhoneElement(),"0937705040");
-    signupPage.typeTextIntoTextBox(signupPage.getPasswordElement(),"0937705040");
-    signupPage.typeTextIntoTextBox(signupPage.getRepeatPasswordElement(),"0937705040");
-    signupPage.typeTextIntoTextBox(signupPage.getDeliveryAddressElement(),"218 Lac Long Quan");
+    signupPage.typeTextIntoTextBox(signupPage.getUserNameElement(),readJson.readJson("userName"));
+    signupPage.typeTextIntoTextBox(signupPage.getFirstNameElement(),readJson.readJson("firstName"));
+    signupPage.typeTextIntoTextBox(signupPage.getLastNameElement(),readJson.readJson("lastName"));
+    signupPage.typeTextIntoTextBox(signupPage.getEmailAddressElement(),readJson.readJson("email"));
+    signupPage.typeTextIntoTextBox(signupPage.getPhoneElement(),readJson.readJson("phone"));
+    signupPage.typeTextIntoTextBox(signupPage.getPasswordElement(),readJson.readJson("password"));
+    signupPage.typeTextIntoTextBox(signupPage.getRepeatPasswordElement(),readJson.readJson("confirmPassword"));
+    signupPage.typeTextIntoTextBox(signupPage.getDeliveryAddressElement(),readJson.readJson("address"));
     signupPage.clickButtonElement(signupPage.getRegisterElement());
 
     // String expectedResult = keyWord.getAttribute(signupPage.getMssAlert(), "innerHTML");
