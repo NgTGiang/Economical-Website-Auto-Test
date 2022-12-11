@@ -18,10 +18,9 @@ public class WebKeyWord {
 
     public WebKeyWord(WebDriver driver){
       this.driver = driver;
-      this.wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+      this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(timeout));
     }
     
-
     public void openUrl(String url) throws Exception {
       if(!(url.startsWith("http://") || url.startsWith("https://"))){
         throw new Exception("Invalid URL format");
@@ -29,7 +28,6 @@ public class WebKeyWord {
       driver.get(url);
     }
 
-    
     public void navigate(String url) throws Exception {
       if(!(url.startsWith("http://") || url.startsWith("https://"))){
         throw new Exception("Invalid URL format");
@@ -37,14 +35,14 @@ public class WebKeyWord {
       driver.navigate().to(url);
     }
     
-    
     public WebElement findElement(By locator){
       return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    
     public void setText(WebElement elem, String text){
       try{
+        Actions actions = new Actions(this.driver);
+        actions.scrollToElement(elem).build().perform();
         elem.clear();
         elem.sendKeys(text);
       }
@@ -53,14 +51,12 @@ public class WebKeyWord {
       }
     }
 
-    
     public  void click(WebElement elem){
       Actions actions = new Actions(this.driver);
-      actions.moveToElement(elem).build().perform();
+      actions.scrollToElement(elem).build().perform();
       elem.click();
     }
 
-    
     public void select(WebElement element, SelectType type, String options) throws Exception {
       Select select = new Select(element);
       
@@ -84,5 +80,11 @@ public class WebKeyWord {
       default:
         throw new Exception("Get error in using Selected");
       }
+    }
+
+    public String getAttribute( WebElement element, String attribute) {
+      wait.until(ExpectedConditions.invisibilityOf(element));
+      System.out.println("Attribute of element" + element.getAttribute(attribute));
+      return element.getAttribute(attribute);
     }
 }

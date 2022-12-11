@@ -12,11 +12,7 @@ import com.fasterxml.jackson.core.sym.Name;
 
 public class ReadJson {
 
-    // public static void main(String[] args) {
-    //   readJson("firstName");
-    // }
- 
-    public static String readJson(String attribute) {
+    public String readJson(String attribute) {
       JSONParser parser = new JSONParser();
       String name = "";
       try {
