@@ -1,0 +1,18 @@
+{
+  "signUp":{
+    "userName":"",
+    "firstName":"Ngo",
+    "lastName":"Hiep",
+    "email":"hiepngo@gmail.com",
+    "phone":"0937705040",
+    "password":"Hiep123456",
+    "confirmPassword":"Hiep123456",
+    "address": "218 Lac Long Quan"
+  },
+  "login":{
+
+  },
+  "product_action":{
+    
+  }
+}
