@@ -8,7 +8,7 @@ public class BasePage {
   public WebDriver driver;
   public WebKeyWord keyword;
 
-  public BasePage(WebDriver driver){
+  public BasePage(WebDriver driver) {
     this.driver = driver;
     this.keyword = new WebKeyWord(driver);
   }
