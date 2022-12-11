@@ -10,7 +10,6 @@ import softwaretesting.example.java.pages.HomePage;
 import softwaretesting.example.java.pages.SignupPage;
 import softwaretesting.example.keyword.WebKeyWord;
 import softwaretesting.example.utilities.ReadJson;
-import softwaretesting.example.utilities.Util;
 
 public class SignUpTest{
   private WebDriver driver;

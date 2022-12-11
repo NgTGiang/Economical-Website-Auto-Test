@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -12,14 +13,17 @@ public class DriverFactory {
 		switch (browser) {
 		case "Chrome":
 			WebDriverManager.chromedriver().setup();
-			ChromeOptions option = new ChromeOptions();
-			option.addArguments("start-maximized");
-			option.addArguments("--incognito");
-			return new ChromeDriver(option);
+			ChromeOptions chromeOption = new ChromeOptions();
+			chromeOption.addArguments("start-maximized");
+			chromeOption.addArguments("--incognito");
+			return new ChromeDriver(chromeOption);
 			
 		case "Edge":
 			WebDriverManager.edgedriver().setup();
-			return new EdgeDriver();
+			EdgeOptions edgeOption = new EdgeOptions();
+			edgeOption.addArguments("start-maximized");
+			edgeOption.addArguments("--incognito");
+			return new EdgeDriver(edgeOption);
 			
 		default:
 			return new ChromeDriver();
