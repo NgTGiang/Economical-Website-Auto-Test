@@ -52,8 +52,14 @@ public class WebKeyWord {
     }
 
     public  void click(WebElement elem){
+      wait.until(ExpectedConditions.elementToBeClickable(elem));
       Actions actions = new Actions(this.driver);
       actions.scrollToElement(elem).build().perform();
+      try {
+        Thread.sleep(5000);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
       elem.click();
     }
 
@@ -82,9 +88,15 @@ public class WebKeyWord {
       }
     }
 
+    public boolean checkElementIsDisplayed(WebElement element) {
+      if (element.isDisplayed()) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
     public String getAttribute( WebElement element, String attribute) {
-      wait.until(ExpectedConditions.invisibilityOf(element));
-      System.out.println("Attribute of element" + element.getAttribute(attribute));
       return element.getAttribute(attribute);
     }
 }

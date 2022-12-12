@@ -1,18 +1,13 @@
 package softwaretesting.example.utilities;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import com.fasterxml.jackson.core.sym.Name;
 
 public class ReadJson {
 
-    public String readJson(String attribute) {
+    public static String readJson(String attribute) {
       JSONParser parser = new JSONParser();
       String name = "";
       try {

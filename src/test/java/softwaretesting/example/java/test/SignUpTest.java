@@ -2,12 +2,12 @@ package softwaretesting.example.java.test;
 
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 import softwaretesting.example.configuration.Configuration;
 import softwaretesting.example.driver.DriverFactory;
-import softwaretesting.example.java.pages.HomePage;
-import softwaretesting.example.java.pages.SignupPage;
+import softwaretesting.example.java.pages.home.HomePage;
+import softwaretesting.example.java.pages.home.HomePageNoLoginAccount;
+import softwaretesting.example.java.pages.home.signup.SignupPage;
 import softwaretesting.example.keyword.WebKeyWord;
 import softwaretesting.example.utilities.ReadJson;
 
@@ -31,7 +31,7 @@ public class SignUpTest{
   @Test
   public void SignUpAccount() throws Exception {
     setup();
-    HomePage homePage = new HomePage(driver);
+    HomePageNoLoginAccount homePage = new HomePageNoLoginAccount(driver);
     homePage.clickBtnSignUp();
     SignupPage signupPage = new SignupPage(driver);
     signupPage.typeTextIntoTextBox(signupPage.getUserNameElement(),readJson.readJson("userName"));
@@ -44,8 +44,8 @@ public class SignUpTest{
     signupPage.typeTextIntoTextBox(signupPage.getDeliveryAddressElement(),readJson.readJson("address"));
     signupPage.clickButtonElement(signupPage.getRegisterElement());
 
-    // String expectedResult = keyWord.getAttribute(signupPage.getMssAlert(), "innerHTML");
-    // Assert.assertTrue(expectedResult != "username Already exists!" && expectedResult != "All fields must be Required!", "Username Already exists or all fields are not filled out!");
+    // String expectedResult = keyWord.getAttribute(signupPage.getMssAlert(), "innerText");
+    // Assert.assertTrue(expectedResult != "ABC");
 
     Thread.sleep(5000);
     tearDown();

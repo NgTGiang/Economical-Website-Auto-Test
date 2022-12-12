@@ -1,8 +1,10 @@
-package softwaretesting.example.java.pages;
+package softwaretesting.example.java.pages.home.signup;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import softwaretesting.example.java.pages.BasePage;
 
 public class SignupPage extends BasePage{
 
