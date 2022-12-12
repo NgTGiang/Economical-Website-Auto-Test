@@ -1,5 +1,7 @@
 package softwaretesting.example.java.test;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -10,6 +12,7 @@ import softwaretesting.example.java.pages.HomePage;
 import softwaretesting.example.java.pages.SignupPage;
 import softwaretesting.example.keyword.WebKeyWord;
 import softwaretesting.example.utilities.ReadJson;
+import softwaretesting.example.utilities.SignUp;
 
 public class SignUpTest{
   private WebDriver driver;
@@ -30,24 +33,30 @@ public class SignUpTest{
 
   @Test
   public void SignUpAccount() throws Exception {
+    String fileName = "src/test/java/softwaretesting/example/java/testdata/signUpData.json";
+    SignUp.genData(fileName);
     setup();
     HomePage homePage = new HomePage(driver);
     homePage.clickBtnSignUp();
-    SignupPage signupPage = new SignupPage(driver);
-    signupPage.typeTextIntoTextBox(signupPage.getUserNameElement(),readJson.readJson("userName"));
-    signupPage.typeTextIntoTextBox(signupPage.getFirstNameElement(),readJson.readJson("firstName"));
-    signupPage.typeTextIntoTextBox(signupPage.getLastNameElement(),readJson.readJson("lastName"));
-    signupPage.typeTextIntoTextBox(signupPage.getEmailAddressElement(),readJson.readJson("email"));
-    signupPage.typeTextIntoTextBox(signupPage.getPhoneElement(),readJson.readJson("phone"));
-    signupPage.typeTextIntoTextBox(signupPage.getPasswordElement(),readJson.readJson("password"));
-    signupPage.typeTextIntoTextBox(signupPage.getRepeatPasswordElement(),readJson.readJson("confirmPassword"));
-    signupPage.typeTextIntoTextBox(signupPage.getDeliveryAddressElement(),readJson.readJson("address"));
-    signupPage.clickButtonElement(signupPage.getRegisterElement());
-
-    // String expectedResult = keyWord.getAttribute(signupPage.getMssAlert(), "innerHTML");
-    // Assert.assertTrue(expectedResult != "username Already exists!" && expectedResult != "All fields must be Required!", "Username Already exists or all fields are not filled out!");
-
-    Thread.sleep(5000);
+    ArrayList<SignUp> signUpList = ReadJson.readJsonForSignUp(fileName);
+    for (int i = 0; i < signUpList.size(); i++) {
+      SignupPage signupPage = new SignupPage(driver);
+      signupPage.typeTextIntoTextBox(signupPage.getUserNameElement(), signUpList.get(i).getUsername());
+      signupPage.typeTextIntoTextBox(signupPage.getFirstNameElement(), signUpList.get(i).getFirstName());
+      signupPage.typeTextIntoTextBox(signupPage.getLastNameElement(), signUpList.get(i).getLastName());
+      signupPage.typeTextIntoTextBox(signupPage.getEmailAddressElement(), signUpList.get(i).getEmail());
+      signupPage.typeTextIntoTextBox(signupPage.getPhoneElement(), signUpList.get(i).getPhone());
+      signupPage.typeTextIntoTextBox(signupPage.getPasswordElement(), signUpList.get(i).getPassword());
+      signupPage.typeTextIntoTextBox(signupPage.getRepeatPasswordElement(), signUpList.get(i).getConfirmPwd());
+      signupPage.typeTextIntoTextBox(signupPage.getDeliveryAddressElement(), signUpList.get(i).getAddress());
+      signupPage.clickButtonElement(signupPage.getRegisterElement());
+  
+      // String expectedResult = keyWord.getAttribute(signupPage.getMssAlert(), "innerHTML");
+      // Assert.assertTrue(expectedResult != "username Already exists!" && expectedResult != "All fields must be Required!", "Username Already exists or all fields are not filled out!");
+  
+      // Thread.sleep(3000);
+    }
     tearDown();
+    
   }
 }
