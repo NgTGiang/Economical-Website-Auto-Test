@@ -1,5 +1,6 @@
 {
-  "signUp":{
+  "signUp": [
+    {
       "userName":"",
       "firstName":"Ngo",
       "lastName":"Hiep",
@@ -9,10 +10,85 @@
       "confirmPassword":"Hiep123456",
       "address": "218 Lac Long Quan"
     },
-  "login":{
-
-  },
-  "product_action":{
-    
-  }
+    {
+      "userName":"hiepngo1997",
+      "firstName":"",
+      "lastName":"Hiep",
+      "email":"hiepngo@gmail.com",
+      "phone":"0937705040",
+      "password":"Hiep123456",
+      "confirmPassword":"Hiep123456",
+      "address": "218 Lac Long Quan"
+    },
+    {
+      "userName":"hiepngo1997",
+      "firstName":"Ngo",
+      "lastName":"",
+      "email":"hiepngo@gmail.com",
+      "phone":"0937705040",
+      "password":"Hiep123456",
+      "confirmPassword":"Hiep123456",
+      "address": "218 Lac Long Quan"
+    },
+    {
+      "userName":"hiepngo1997",
+      "firstName":"Ngo",
+      "lastName":"Hiep",
+      "email":"",
+      "phone":"0937705040",
+      "password":"Hiep123456",
+      "confirmPassword":"Hiep123456",
+      "address": "218 Lac Long Quan"
+    },
+    {
+      "userName":"hiepngo1997",
+      "firstName":"Ngo",
+      "lastName":"Hiep",
+      "email":"hiepngo@gmail.com",
+      "phone":"",
+      "password":"Hiep123456",
+      "confirmPassword":"Hiep123456",
+      "address": "218 Lac Long Quan"
+    },
+    {
+      "userName":"hiepngo1997",
+      "firstName":"Ngo",
+      "lastName":"Hiep",
+      "email":"hiepngo@gmail.com",
+      "phone":"0937705040",
+      "password":"",
+      "confirmPassword":"Hiep123456",
+      "address": "218 Lac Long Quan"
+    },
+    {
+      "userName":"hiepngo1997",
+      "firstName":"Ngo",
+      "lastName":"Hiep",
+      "email":"hiepngo@gmail.com",
+      "phone":"0937705040",
+      "password":"Hiep123456",
+      "confirmPassword":"",
+      "address": "218 Lac Long Quan"
+    },
+    {
+      "userName":"hiepngo1997",
+      "firstName":"Ngo",
+      "lastName":"Hiep",
+      "email":"hiepngo@gmail.com",
+      "phone":"0937705040",
+      "password":"Hiep123456",
+      "confirmPassword":"Hiep123456",
+      "address": ""
+    },
+    {
+      "userName":"hiepngo1997",
+      "firstName":"Ngo",
+      "lastName":"Hiep",
+      "email":"hiepngo@gmail.com",
+      "phone":"0937705040",
+      "password":"Hiep123456",
+      "confirmPassword":"Hiep123456",
+      "address": "218 Lac Long Quan"
+    }
+  ]
 }
