@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 import softwaretesting.example.configuration.Configuration;
 import softwaretesting.example.driver.DriverFactory;
-import softwaretesting.example.java.pages.HomePage;
-import softwaretesting.example.java.pages.SignupPage;
+import softwaretesting.example.java.pages.home.HomePage;
+import softwaretesting.example.java.pages.home.HomePageNoLoginAccount;
+import softwaretesting.example.java.pages.home.signup.SignupPage;
 import softwaretesting.example.keyword.WebKeyWord;
 import softwaretesting.example.utilities.ReadJson;
 import softwaretesting.example.utilities.SignUp;
@@ -36,7 +36,7 @@ public class SignUpTest{
     String fileName = "src/test/java/softwaretesting/example/java/testdata/signUpData.json";
     SignUp.genData(fileName);
     setup();
-    HomePage homePage = new HomePage(driver);
+    HomePageNoLoginAccount homePage = new HomePageNoLoginAccount(driver);
     homePage.clickBtnSignUp();
     ArrayList<SignUp> signUpList = ReadJson.readJsonForSignUp(fileName);
     for (int i = 0; i < signUpList.size(); i++) {
