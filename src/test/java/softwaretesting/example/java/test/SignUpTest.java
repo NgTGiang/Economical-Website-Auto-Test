@@ -33,10 +33,12 @@ public class SignUpTest{
 
   @Test
   public void SignUpAccount() throws Exception {
+    String fileName = "src/test/java/softwaretesting/example/java/testdata/signUpData.json";
+    SignUp.genData(fileName);
     setup();
     HomePage homePage = new HomePage(driver);
     homePage.clickBtnSignUp();
-    ArrayList<SignUp> signUpList = ReadJson.readJsonForSignUp();
+    ArrayList<SignUp> signUpList = ReadJson.readJsonForSignUp(fileName);
     for (int i = 0; i < signUpList.size(); i++) {
       SignupPage signupPage = new SignupPage(driver);
       signupPage.typeTextIntoTextBox(signupPage.getUserNameElement(), signUpList.get(i).getUsername());

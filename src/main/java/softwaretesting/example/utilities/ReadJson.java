@@ -32,11 +32,11 @@ public class ReadJson {
       }
    }
 
-   public static ArrayList<SignUp> readJsonForSignUp() {
+   public static ArrayList<SignUp> readJsonForSignUp(String fileName) {
       JSONParser parser = new JSONParser();
       ArrayList<SignUp> signUpArr = new ArrayList<SignUp>();
       try {
-         Object obj = parser.parse(new FileReader("src/test/java/softwaretesting/example/java/testdata/data.json"));
+         Object obj = parser.parse(new FileReader(fileName));
          JSONObject jsonObject = (JSONObject)obj;
          JSONArray jsonarr = (JSONArray) jsonObject.get("signUp");
 
